@@ -1,0 +1,9 @@
+CREATE TABLE person (
+id int NOT NULL,
+name varchar(255) DEFAULT NULL,
+email varchar(255) DEFAULT NULL,
+mobile varchar(15) DEFAULT NULL,
+PRIMARY KEY (id))
+
+
+select * from person
