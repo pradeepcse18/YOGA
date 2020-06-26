@@ -1,5 +1,7 @@
 package com.modal;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,16 +25,51 @@ public class Customer{
 	
 	@Column(name="mobile")
 	String mobile;
-
-	public Customer() {
-		super();
-	}
+		
+	@Column(name="alt_mobile")
+	String alt_mobile;
 	
-	public Customer(String name,String email,String mobile) {
-		super();
-		this.name=name;
-		this.email=email;
-		this.mobile=mobile;
+	@Column(name="co_ord")
+	String co_ord;
+
+	@Column(name="district")
+	String district;
+
+	@Column(name="state")
+	String state;
+	
+	@Column(name="date")
+	Date date;
+	
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	public String getAlt_mobile() {
+		return alt_mobile;
+	}
+	public void setAlt_mobile(String alt_mobile) {
+		this.alt_mobile = alt_mobile;
+	}
+	public String getCo_ord() {
+		return co_ord;
+	}
+	public void setCo_ord(String co_ord) {
+		this.co_ord = co_ord;
+	}
+	public String getDistrict() {
+		return district;
+	}
+	public void setDistrict(String district) {
+		this.district = district;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
 	}
 	public String getName() {
 		return name;

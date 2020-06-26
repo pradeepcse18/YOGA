@@ -1,9 +1,14 @@
 CREATE TABLE person (
-id int NOT NULL,
+id serial PRIMARY KEY,
 name varchar(255) DEFAULT NULL,
-email varchar(255) DEFAULT NULL,
-mobile varchar(15) DEFAULT NULL,
-PRIMARY KEY (id))
+mobile varchar(35) DEFAULT NULL,
+alt_mobile varchar(35) DEFAULT NULL,
+email varchar(100) DEFAULT NULL,
+co_ord varchar(35) DEFAULT NULL,
+district varchar(35) DEFAULT NULL,
+state varchar(35) DEFAULT NULL,
+date timestamp without time zone
+)
 
 
 select * from person
