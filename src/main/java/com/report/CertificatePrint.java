@@ -34,7 +34,12 @@ public class CertificatePrint {
 	
 	@Autowired
 	CustomerService customerService;
-
+	
+	@RequestMapping(value = "/getCertificate")
+	public String goToCertificate() {
+		return "certificate_form.html";
+	}
+	
 	@RequestMapping(value = "/print", method = RequestMethod.GET, headers = "Accept=application/json")
 	public void createPdf( @RequestParam("sirName") String sirName,@RequestParam("name") String name,
 			@RequestParam("contact") String contact,@RequestParam("alt_contact") String alt_contact,
@@ -52,7 +57,8 @@ public class CertificatePrint {
 		customer.setDate(new Date(System.currentTimeMillis()));
 		customerService.addCustomer(customer);
 		
-		final String IMAGE ="E:\\PRODUCT\\HOME\\DEV\\project\\root\\src\\main\\java\\com\\report\\Certificate.jpg";
+		//final String IMAGE ="E:\\PRODUCT\\HOME\\DEV\\project\\root\\src\\main\\java\\com\\report\\Certificate.jpg";
+		final String IMAGE ="opt/tomcat/webapps/ROOT/Certificate.jpg";
 		Document d = new Document(PageSize.A4.rotate());
 		response.setContentType("application/pdf");
 		response.setHeader("Content-disposition", "attachment; filename=Certificate.pdf");

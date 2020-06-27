@@ -28,12 +28,7 @@ public class CustomerController {
 		}
 		return listOfCustomers;
 	}
-	
-	@RequestMapping(value = "/getAll", method = RequestMethod.GET, headers = "Accept=application/json")
-	public String goToHomePage() {
-		return "redirect:/getAllCustomers";
-	}
-	
+
 	@RequestMapping(value = "/getCustomer/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
 	public void getCustomerById(@PathVariable int id) {
 		customerService.getCustomer(id);
@@ -49,9 +44,11 @@ public class CustomerController {
 		return customerService.updateCustomer(customer); 
 	}
 	
-	@RequestMapping(value = "/deleteCustomer/{id}", method = RequestMethod.DELETE, headers = "Accept=application/json")
-	public void deleteCustomer(@PathVariable("id") int id) {
-		customerService.deleteCustomer(id);
-	}	
+	/*
+	 * @RequestMapping(value = "/deleteCustomer/{id}", method =
+	 * RequestMethod.DELETE, headers = "Accept=application/json") public void
+	 * deleteCustomer(@PathVariable("id") int id) {
+	 * customerService.deleteCustomer(id); }
+	 */	
 }
 

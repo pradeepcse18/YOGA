@@ -30,132 +30,149 @@
 	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 <script type="text/javascript">
- function GeneratePDF(){
-	var frm=document.certForm;
-	var sirName =document.getElementById("sirName").value;
-	var name =document.getElementById("name").value;
-	var contact =document.getElementById("contact").value;
-	var alt_contact =document.getElementById("alt_contact").value;
-	var email =document.getElementById("email").value;
-	var co_ord =document.getElementById("co_ord").value;
-	var dist =document.getElementById("dist").value;
-	var state =document.getElementById("state").value;
-	if(name==null){
-		alert("Please Enter the Full Name");
-		return false;
+	 function GeneratePDF(){
+			var frm=document.certForm;
+			var sirName =document.getElementById("sirName").value;
+			var name =document.getElementById("name").value;
+			var contact =document.getElementById("contact").value;
+			var alt_contact =document.getElementById("alt_contact").value;
+			var email =document.getElementById("email").value;
+			var co_ord =document.getElementById("co_ord").value;
+			var dist =document.getElementById("dist").value;
+			var state =document.getElementById("state").value;
+			if(isEmpty(name)){
+				alert("Please Enter the Full Name");
+				return false;
+			}
+			if(isEmpty(contact)){
+				alert("Please Enter the Mobile No");
+				return false;
+			}
+			if(isEmpty(dist)){
+				alert("Please Enter the District Name");
+				return false;
+			}
+			if(isEmpty(state)){
+				alert("Please Enter the State Name");
+				return false;
+			}
+			frm.action="/print?sirName="+sirName+"&name="+name+"&contact="+contact+"&alt_contact="+alt_contact+"&email="+email+"&co_ord="+co_ord+"&dist="+dist+"&state="+state;
+			frm.method="get";
+			frm.submit();
+			
+		 }
+ function isEmpty(aTextField) {
+		if(aTextField == null){
+			return false;
+		}
+		
+		var re = /\s/g; //Match any white space including space, tab, form-feed, etc.
+		var str = aTextField.replace(re, "");
+		if (str.length == 0) {
+			return true;
+		} else {
+			return false;
+		}
 	}
-	if(contact==null){
-		alert("Please Enter the Contact No");
-		return false;
-	}
-	if(dist==null){
-		alert("Please Enter the District Name");
-		return false;
-	}
-	if(state==null){
-		alert("Please Enter the State Name");
-		return false;
-	}
-	frm.action="/print?sirName="+sirName+"&name="+name+"&contact="+contact+"&alt_contact="+alt_contact+"&email="+email+"&co_ord="+co_ord+"&dist="+dist+"&state="+state;
-	frm.method="get";
-	frm.submit();
-	
- }
 </script>
 </head>
 <body>
-<br>
+	<br>
 	<div class="container">
-        <hr>
+		<hr>
 		<p style="text-align: center; font-size: 17px;">
-			Congratulations for successfully participating the <strong>YogaKaro's initiative of Yoga Exercise on International Day of Yoga (21st June,2020)</strong> organized by <strong>
-			YogaKaro </strong>, in association with <strong>AYUSH
-				Ministry Govt. Of INDIA</strong>
+			Congratulations for successfully participating the <strong>YogaKaro's
+				initiative of Yoga Exercise on International Day of Yoga (21st
+				June,2020)</strong> organized by <strong> YogaKaro </strong>, in association
+			with <strong>AYUSH Ministry Govt. Of INDIA</strong>
 		</p>
-        <hr>
-		<form name="certForm" method="get" action="">
-		<div class="panel panel-default">
-			<div class="panel-body">
-			<div class="row">
-				<div class="col-md-12 form-group">
-					 <h5>Please fill the below detail to get your participation	certificate:</h5>
-				</div><br>
-				<div class="col-md-1">
-					<div class="form-group form-inline">
-						<select required name="sirName" id="sirName" class="form-control"
-							style="width: 100%;">
-							<option>Mr.</option>
-							<option>Mrs.</option>
-							<option>Miss.</option>
-							<option>Dr.</option>
-						</select>
-					</div>
-				</div>
-				<div class="col-md-5">
-					<div class="form-group">
-						<input type="text" name="name" id="name" class="form-control"
-							placeholder="Your Full Name *" value="">
-					</div>
-				</div>
+		<hr>
+		<form name="certForm" method="post" action="">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-12 form-group">
+							<h5>Please fill the below detail to get your participation
+								certificate:</h5>
+						</div>
+						<br>
+						<div class="col-md-1">
+							<div class="form-group form-inline">
+								<select required name="sirName" id="sirName"
+									class="form-control" style="width: 100%;">
+									<option>Mr.</option>
+									<option>Mrs.</option>
+									<option>Miss.</option>
+									<option>Dr.</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-5">
+							<div class="form-group">
+								<input type="text" name="name" id="name" class="form-control"
+									placeholder="Your Full Name *">
+							</div>
+						</div>
 
-				<div class="col-md-6">
-					<div class="form-group">
-						<input type="text" name="contact" id="contact" required
-							class="form-control" placeholder="Mobile No *" value="">
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="form-group">
-						<input type="text" name="alt_contact" id="alt_contact" required
-							class="form-control" placeholder="Alternative Mobile No" value="">
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="form-group">
-						<input type="text" name="email" id="email" required
-							class="form-control" placeholder="E-mail ID" value="">
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="form-group">
-						<input type="text" name="co_ord" id="co_ord" required
-							class="form-control" placeholder="Co-ordinater Name" value="">
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="form-group">
-						<input type="text" name="dist"  id="dist" required class="form-control"
-							placeholder="District *" value="">
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="form-group">
-						<input type="text" name="state" id="state" required
-							class="form-control" placeholder="State *" value="">
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="form-group">
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="text" name="contact" id="contact" required
+									class="form-control" placeholder="Mobile No *">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="text" name="alt_contact" id="alt_contact" required
+									class="form-control" placeholder="Alternative Mobile No">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="text" name="email" id="email" required
+									class="form-control" placeholder="E-mail ID">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="text" name="co_ord" id="co_ord" required
+									class="form-control" placeholder="Co-ordinater Name">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="text" name="dist" id="dist" required class="form-control"
+									placeholder="District *">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="text" name="state" id="state" required
+									class="form-control" placeholder="State *">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
 
-						<label class="checkbox"> <input type="checkbox"
-							id="checkbox" style="outline: 1px solid #4cbb17;" checked disabled>
-							I hereby confirm that I have participated in YogaKaro's
-							initiative of Yoga Exercise on International Day of Yoga (21st
-							June,2020) and all the given information is true.
-						</label>
+								<label class="checkbox"> <input type="checkbox"
+									id="checkbox" style="outline: 1px solid #4cbb17;" checked
+									disabled> I hereby confirm that I have participated in
+									YogaKaro's initiative of Yoga Exercise on International Day of
+									Yoga (21st June,2020) and all the given information is true.
+								</label>
 
-					</div>
-				</div>
-				<div class="col-md-12">
-					<div class="form-group text-center">
-						<a class="btn btn-success" onclick="GeneratePDF()">Generate Certificate</a>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group text-center">
+								<a class="btn btn-success" onclick="GeneratePDF()">Generate
+									Certificate</a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			</div>
-		</div>
-	</form>
-</div>
+		</form>
+	</div>
 
 	<footer class="footer-section">
 		<div class="contaienr text-center">
@@ -164,8 +181,8 @@
 				<script>
 					document.write(new Date().getFullYear());
 				</script>
-				All rights reserved | by YogaKaro <br>
-				Website design and developed by-<a href="tel:8756863642">Pradeep Kumar</a>
+				All rights reserved | by YogaKaro <br> Website design and
+				developed by-<a href="tel:8756863642">Pradeep Kumar</a>
 			</p>
 		</div>
 	</footer>
