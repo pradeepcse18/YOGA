@@ -29,42 +29,45 @@
 	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 <script type="text/javascript">
-	 function GeneratePDF(){
-			var frm=document.certForm;
-			var sirName =document.getElementById("sirName").value;
-			var name =document.getElementById("name").value;
-			var contact =document.getElementById("contact").value;
-			var alt_contact =document.getElementById("alt_contact").value;
-			var email =document.getElementById("email").value;
-			var co_ord =document.getElementById("co_ord").value;
-			var dist =document.getElementById("dist").value;
-			var state =document.getElementById("state").value;
-			if(isEmpty(name)){
-				alert("Please Enter the Full Name");
-				return false;
-			}
-			if(isEmpty(contact)){
-				alert("Please Enter the Mobile No");
-				return false;
-			}
-			if(isEmpty(dist)){
-				alert("Please Enter the District Name");
-				return false;
-			}
-			if(isEmpty(state)){
-				alert("Please Enter the State Name");
-				return false;
-			}
-			frm.action="/print?sirName="+sirName+"&name="+name+"&contact="+contact+"&alt_contact="+alt_contact+"&email="+email+"&co_ord="+co_ord+"&dist="+dist+"&state="+state;
-			frm.method="get";
-			frm.submit();
-			
-		 }
- function isEmpty(aTextField) {
-		if(aTextField == null){
+	function GeneratePDF() {
+		var frm = document.certForm;
+		var sirName = document.getElementById("sirName").value;
+		var name = document.getElementById("name").value;
+		var contact = document.getElementById("contact").value;
+		var alt_contact = document.getElementById("alt_contact").value;
+		var email = document.getElementById("email").value;
+		var co_ord = document.getElementById("co_ord").value;
+		var dist = document.getElementById("dist").value;
+		var state = document.getElementById("state").value;
+		if (isEmpty(name)) {
+			alert("Please Enter the Full Name");
 			return false;
 		}
-		
+		if (isEmpty(contact)) {
+			alert("Please Enter the Mobile No");
+			return false;
+		}
+		if (isEmpty(dist)) {
+			alert("Please Enter the District Name");
+			return false;
+		}
+		if (isEmpty(state)) {
+			alert("Please Enter the State Name");
+			return false;
+		}
+		frm.action = "/print?sirName=" + sirName + "&name=" + name
+				+ "&contact=" + contact + "&alt_contact=" + alt_contact
+				+ "&email=" + email + "&co_ord=" + co_ord + "&dist=" + dist
+				+ "&state=" + state;
+		frm.method = "get";
+		frm.submit();
+
+	}
+	function isEmpty(aTextField) {
+		if (aTextField == null) {
+			return false;
+		}
+
 		var re = /\s/g; //Match any white space including space, tab, form-feed, etc.
 		var str = aTextField.replace(re, "");
 		if (str.length == 0) {
@@ -76,126 +79,112 @@
 </script>
 </head>
 <body>
-<div id="preloder">
+	<div id="preloder">
 		<div class="loader"></div>
 	</div>
+	<div class="row">
+		<img src="img/banner.jpg" height="20%" width="100%">
+	</div>
 
-	<!-- Header section -->
-		<header class="header-section">
-	      <div class="row">
-			   <div class="col-md-2 col-sm-6 top-reponsive">
-					<a class="site-logo">
-						<img src="img/logo.png" alt="">
-					</a>
-				</div>
-                <div class="col-md-6 col-sm-6 top-reponsive ">                      
-                    <span style="color: green">Contact No:</span><a style="color: black"  href="tel:+919956176774"> +91- 9956176774</a>
-                </div>     
-                <div class="col-md-4 col-sm-6 top-reponsive text">
-                    <span style="color: green">Email: </span><a style="color: black" href="mailto:Prayasinstitute.in@gmail.com">Prayasinstitute.in@gmail.com</a>
-                </div>        
-            </div>
-	</header>
 	<!-- Header section end -->
-	<br><br><br>
-	<div class="hero-section set-bg" data-setbg="img/hero-bg-1.png">
-	<div class="container">
-	<br><br>
-		<hr>
-		<p style="text-align: center; color:white; font-size: 17px;">
-			Congratulations for successfully participating the <strong>YogaKaro's
-				initiative of Yoga Exercise on International Day of Yoga (21st
-				June,2020)</strong> organized by <strong> YogaKaro </strong>, in association
-			with <strong>AYUSH Ministry Govt. Of INDIA</strong>
-		</p>
-		<hr>
-		<form name="certForm" method="post" action="">
-			<div class="panel panel-default">
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-md-12 form-group">
-							<h5>Please fill the below detail to get your participation
-								certificate:</h5>
-						</div>
-						<br>
-						<div class="col-md-1">
-							<div class="form-group form-inline">
-								<select required name="sirName" id="sirName"
-									class="form-control" style="width: 100%;">
-									<option>Mr.</option>
-									<option>Mrs.</option>
-									<option>Miss.</option>
-									<option>Dr.</option>
-								</select>
+	<div class="set-bg" data-setbg="img/hero-bg-1.png">
+		<div class="container">
+			<br>
+			<hr>
+			<p style="text-align: center; color: white; font-size: 17px;">
+				Congratulations for successfully participating the <strong>YogaKaro's
+					initiative of Yoga Exercise on International Day of Yoga (21st
+					June,2020)</strong> organized by <strong> YogaKaro </strong>, in association
+				with <strong>AYUSH Ministry Govt. Of INDIA</strong>
+			</p>
+			<hr>
+			<form name="certForm" method="post" action="">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-12 form-group">
+								<h5>Please fill the below detail to get your participation
+									certificate:</h5>
 							</div>
-						</div>
-						<div class="col-md-5">
-							<div class="form-group">
-								<input type="text" name="name" id="name" class="form-control"
-									placeholder="Your Full Name">
+							<br>
+							<div class="col-md-1">
+								<div class="form-group form-inline">
+									<select required name="sirName" id="sirName"
+										class="form-control" style="width: 100%;">
+										<option>Mr.</option>
+										<option>Mrs.</option>
+										<option>Miss.</option>
+										<option>Dr.</option>
+									</select>
+								</div>
 							</div>
-						</div>
+							<div class="col-md-5">
+								<div class="form-group">
+									<input type="text" name="name" id="name" class="form-control"
+										placeholder="Your Full Name">
+								</div>
+							</div>
 
-						<div class="col-md-6">
-							<div class="form-group">
-								<input type="text" name="contact" id="contact" required
-									class="form-control" placeholder="Mobile No">
+							<div class="col-md-6">
+								<div class="form-group">
+									<input type="text" name="contact" id="contact" required
+										class="form-control" placeholder="Mobile No">
+								</div>
 							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="form-group">
-								<input type="text" name="alt_contact" id="alt_contact" required
-									class="form-control" placeholder="Alternative Mobile No">
+							<div class="col-md-6">
+								<div class="form-group">
+									<input type="text" name="alt_contact" id="alt_contact" required
+										class="form-control" placeholder="Alternative Mobile No">
+								</div>
 							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="form-group">
-								<input type="text" name="email" id="email" required
-									class="form-control" placeholder="E-mail ID">
+							<div class="col-md-6">
+								<div class="form-group">
+									<input type="text" name="email" id="email" required
+										class="form-control" placeholder="E-mail ID">
+								</div>
 							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="form-group">
-								<input type="text" name="co_ord" id="co_ord" required
-									class="form-control" placeholder="Co-ordinater Name">
+							<div class="col-md-6">
+								<div class="form-group">
+									<input type="text" name="co_ord" id="co_ord" required
+										class="form-control" placeholder="Co-ordinater Name">
+								</div>
 							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="form-group">
-								<input type="text" name="dist"  id="dist"  required class="form-control"
-									placeholder="District">
+							<div class="col-md-6">
+								<div class="form-group">
+									<input type="text" name="dist" id="dist" required
+										class="form-control" placeholder="District">
+								</div>
 							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="form-group">
-								<input type="text" name="state" id="state" required
-									class="form-control" placeholder="State">
+							<div class="col-md-6">
+								<div class="form-group">
+									<input type="text" name="state" id="state" required
+										class="form-control" placeholder="State">
+								</div>
 							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="form-group">
+							<div class="col-md-6">
+								<div class="form-group">
 
-								<label class="checkbox"> <input type="checkbox"
-									id="checkbox" style="outline: 1px solid #4cbb17;" checked
-									disabled> I hereby confirm that I have participated in
-									YogaKaro's initiative of Yoga Exercise on International Day of
-									Yoga (21st June,2020) and all the given information is true.
-								</label>
+									<label class="checkbox"> <input type="checkbox"
+										id="checkbox" style="outline: 1px solid #4cbb17;" checked
+										disabled> I hereby confirm that I have participated in
+										YogaKaro's initiative of Yoga Exercise on International Day of
+										Yoga (21st June,2020) and all the given information is true.
+									</label>
 
+								</div>
 							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group text-center">
-								<a class="btn btn-success" onclick="GeneratePDF()">Generate
-									Certificate</a>
+							<div class="col-md-12">
+								<div class="form-group text-center">
+									<a class="btn btn-success" onclick="GeneratePDF()">Generate
+										Certificate</a>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</form>
+			</form>
+		</div>
 	</div>
-   </div>
 	<footer class="footer-section">
 		<div class="contaienr text-center">
 			<p>
@@ -204,7 +193,7 @@
 					document.write(new Date().getFullYear());
 				</script>
 				All rights reserved | by YogaKaro <br> Website design and
-				developed by-<a href="tel:8756863642">Er.Pradeep Kumar</a>
+				developed by-<a style="color:blue">Eventura Infotech</a>
 			</p>
 		</div>
 	</footer>
