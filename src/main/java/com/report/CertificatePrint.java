@@ -14,7 +14,10 @@ import com.modal.Customer;
 import com.service.CustomerService;
 
 import java.awt.Color;
+import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -57,8 +60,7 @@ public class CertificatePrint {
 		customer.setDate(new Date(System.currentTimeMillis()));
 		customerService.addCustomer(customer);
 		
-		//final String IMAGE ="E:\\PRODUCT\\HOME\\DEV\\project\\root\\src\\main\\java\\com\\report\\Certificate.jpg";
-		final String IMAGE ="opt/tomcat/webapps/ROOT/Certificate.jpg";
+		final String IMAGE =getPath("Certificate.jpg");
 		Document d = new Document(PageSize.A4.rotate());
 		response.setContentType("application/pdf");
 		response.setHeader("Content-disposition", "attachment; filename=Certificate.pdf");
@@ -84,5 +86,18 @@ public class CertificatePrint {
 		d.close();
 		pusher.close();
 
+	}
+
+	public String getPath(String webDir) throws UnsupportedEncodingException  {
+		String path = this.getClass().getClassLoader().getResource("").getPath();
+		String fullPath = URLDecoder.decode(path, "UTF-8");
+		String pathArr[] = fullPath.split("/WEB-INF/classes/");
+		System.out.println(fullPath);
+		System.out.println(pathArr[0]);
+		fullPath = pathArr[0];
+		String responsePath = "";
+		responsePath = new File(fullPath).getPath() + File.separatorChar +webDir;
+		System.out.println(responsePath);
+		return responsePath;
 	}
 }
